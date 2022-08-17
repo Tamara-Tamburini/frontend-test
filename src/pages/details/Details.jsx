@@ -1,9 +1,9 @@
-import styles from "./Details.module.css"
+import styles from "./Details.css"
 
 function Details() {
   return (
     <>
-      <div className={styles.App}>Test</div>
+      <div className="details">Test</div>
     </>
   );
 }
