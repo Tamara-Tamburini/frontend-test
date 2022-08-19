@@ -1,9 +1,9 @@
 import { Layout } from "antd";
-import styles from "./App.css";
+import "./App.css";
 import MainHome from "./pages/mainHome/MainHome";
 import Details from "./pages/details/Details";
 import Breadcrumbs from "./components/Breadcrumbs";
-import { MobileOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Col, Row } from "antd";
 
@@ -12,17 +12,20 @@ const { Header, Content } = Layout;
 function App() {
   return (
     <Layout>
-      <Header className="header">
+      <Header className="header" style={{ padding: "0 20px" }}>
         <Row align="middle">
-          <Col span={6} className="headerTitle"> Mobile Shop App</Col>
-          <Col span={8} >
-            <Breadcrumbs />
+          <Col span={6} className="headerTitle">
+            Mobile Shop App
+          </Col>
+          <Breadcrumbs />
+          <Col span={2} offset={8} className="headerCart">
+            <ShoppingCartOutlined />
           </Col>
         </Row>
       </Header>
 
-      <Layout>
-        <Content>
+      <Layout className="layoutContent">
+        <Content className="content">
           <Routes>
             <Route index element={<DefaultRoute />} />
             <Route path="home">

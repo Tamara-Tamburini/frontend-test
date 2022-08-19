@@ -1,5 +1,51 @@
-.headerTitle {
-    font-size: 20px;
-    font-weight: 500;
+
+/* Header Style */
+.header {
+    padding: 0 20px;
 }
 
+.headerTitle {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.headerCart {
+  font-size: 20px;
+  text-align: center;
+}
+
+
+
+/* Content Style */
+.layoutContent {
+  align-items: center;
+}
+
+.content {
+  max-width: 1400px;
+  width: 100%;
+  padding: 20px;
+}
+
+.searchInput {
+  width: 200px;
+}
+
+.ant-input:focus, .ant-input-focused {
+  box-shadow: 0 0 0 2px rgb(49 49 50 / 0%) !important;
+}
+
+/* Content Items List Style */
+.listWrapper {
+  padding: 30px 0;
+}
+.itemModel {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+.itemPrice {
+  font-size: 20px;
+  font-weight: 500;
+}
