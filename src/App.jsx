@@ -14,11 +14,11 @@ function App() {
     <Layout>
       <Header className="header" style={{ padding: "0 20px" }}>
         <Row align="middle">
-          <Col span={6} className="headerTitle">
-            <Link to="/home">Mobile Shop App</Link>
+          <Col xs={8} sm={6} md={6} lg={6} xl={6} className="headerTitle">
+            <Link to="/">Mobile Shop App</Link>
           </Col>
           <Breadcrumbs />
-          <Col span={2} offset={8} className="headerCart">
+          <Col flex="auto" className="headerCart">
             <ShoppingCartOutlined />
           </Col>
         </Row>

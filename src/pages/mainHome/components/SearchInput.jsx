@@ -3,17 +3,20 @@ import { useState } from "react";
 
 const { Search } = Input;
 
-function SearchInput() {
-  const [searchInput, setSearchInput] = useState("")
+function SearchInput({ items, setItems }) {
+  const [searchInput, setSearchInput] = useState("");
 
   const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
-  }
+    setSearchInput(searchValue);
+    items.filter((item) => {
+      return Object.values(item)
+        .join("")
+        .toLowerCase()
+        .includes(searchInput.toLowerCase());
+    });
 
 
-  // const onSearch = (value) => {
-    
-  // };
+  };
 
   return (
     <Row align="end">
@@ -28,4 +31,4 @@ function SearchInput() {
   );
 }
 
-export default SearchInput
+export default SearchInput;

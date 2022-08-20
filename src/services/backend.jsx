@@ -32,3 +32,7 @@ function unwrapResult(json, status) {
 export async function get(endpoint, params) {
   return sendRequest("GET", endpoint, params);
 }
+
+export async function getMobileDetails(endpoint, params) {
+  return sendRequest("GET", endpoint, params);
+}
