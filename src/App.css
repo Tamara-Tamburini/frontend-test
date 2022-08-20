@@ -18,7 +18,8 @@
 
 .headerCart {
   font-size: 20px;
-  text-align: center;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Content Style */
@@ -32,4 +33,8 @@
   padding: 20px;
 }
 
-
+@media (max-width: 768px) {
+  .headerTitle {
+    font-size: 17px;
+  }
+}
