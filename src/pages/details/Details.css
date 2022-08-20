@@ -1,4 +1,10 @@
-.details {
-    color: #9f58b7;
-    font-size: 40px;
+/* DETAILS VIEW */
+
+.detailsWrapper {
+    padding: 20px 0;
+}
+.deviceImg {
+}
+
+.deviceDetails {
 }

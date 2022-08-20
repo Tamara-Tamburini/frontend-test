@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import SearchInput from "./components/SearchInput";
 import ItemList from "./components/ItemList";
 import { getMobile } from "../../services/mobileServices";
+import styles from "./MainHome.css";
+
 
 function MainHome() {
   const [items, setItems] = useState([]);

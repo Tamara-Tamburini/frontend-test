@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { Skeleton, Row, Col, Image } from "antd";
-import { useLocation, Link } from "react-router-dom";
+import { Routes, Router, Link } from "react-router-dom";
 
 function ItemList({ items }) {
   if (!items) {
@@ -11,9 +10,8 @@ function ItemList({ items }) {
     return (
       <>
         {items.map((item, index) => {
-            console.log(index);
           return (
-            <Col xs={2} sm={4} md={6} lg={6} xl={6}>
+            <Col key={index} span="6">
               <Link to={`/${item.id}`}>
                 <Row justify="center">
                   <Image preview={false} width={200} src={item.imgUrl} />
