@@ -1,5 +1,9 @@
 # Front-end Test
 
+Web application to buy mobile devices.
+
+Added React UI library Ant desing.
+
 
 ## Scripts
 
