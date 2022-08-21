@@ -6,18 +6,16 @@ import "./MainHome.css";
 
 function MainHome() {
   const [items, setItems] = useState([])
-  const [filteredResults, setFilteredResults] = useState([])
+  const [filteredItems, setFilteredItems] = useState([])
 
   useEffect(() => {
     getMobile().then((itemsData) => setItems(itemsData))
   }, []);
 
-  console.log(items);
   return (
     <>
-      <SearchInput items={items} setItems={() => setItems()} />
-
-      <ItemList items={items}  />
+      <SearchInput items={items} filteredItem={setFilteredItems} />
+      <ItemList items={items} filteredItems={filteredItems} />
     </>
   );
 }
