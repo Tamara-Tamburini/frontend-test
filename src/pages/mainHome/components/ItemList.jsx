@@ -1,14 +1,13 @@
-import { Skeleton, Row, Col, Image } from "antd";
 import { Link } from "react-router-dom";
+import { Skeleton, Row, Col, Image } from "antd";
 
 function ItemList({ items, result }) {
- 
   if (!items) {
     return <Skeleton />;
   }
 
   if (items) {
-    // items = result === !undefined ? result : items;
+    items = result === !undefined ? result : items;
     return (
       <>
         <Row align="middle" gutter={[24, 24]} className="listWrapper">

@@ -1,4 +1,4 @@
-import { Col, Row, Form, Button, Radio } from "antd";
+import { Row, Form, Button, Radio } from "antd";
 
 function Actions() {
     
