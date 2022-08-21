@@ -1,20 +1,17 @@
 import { Col, Row, Input } from "antd";
-import { useState } from "react";
 
 const { Search } = Input;
 
-function SearchInput({ items, setItems }) {
-  const [searchInput, setSearchInput] = useState("");
-
+function SearchInput({ items, filteredItem }) {
   const searchItems = (searchValue) => {
-    setSearchInput(searchValue);
-    items.filter((item) => {
+    const filteredData = items.filter((item) => {
       return Object.values(item)
         .join("")
         .toLowerCase()
-        .includes(searchInput.toLowerCase());
+        .includes(searchValue.toLowerCase())
     });
 
+    filteredItem(filteredData);
 
   };
 

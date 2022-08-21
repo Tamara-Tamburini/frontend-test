@@ -1,10 +1,10 @@
-import styles from "./Details.css";
-import { Row, Col, Image } from "antd";
 import Description from "./components/Description";
 import Actions from "./components/Actions";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {getMobileDetails } from "../../services/mobileServices"
+import { Row, Col, Image } from "antd";
+import "./Details.css";
 
 function Details() {
   const { id } = useParams();

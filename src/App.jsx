@@ -1,11 +1,10 @@
-import { Layout } from "antd";
-import "./App.css";
 import MainHome from "./pages/mainHome/MainHome";
 import Details from "./pages/details/Details";
 import Breadcrumbs from "./components/Breadcrumbs";
-import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
-import { Col, Row } from "antd";
+import { Col, Row,Layout } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import "./App.css";
 
 const { Header, Content } = Layout;
 
