@@ -1,11 +1,7 @@
 import { Form, Button, Radio } from "antd";
-import { useEffect, useState } from "react";
 import { postAppCart } from "../../../services/mobileServices";
 
-function Actions({ id, options }) {
-  // const [form] = Form.useForm();
-  const [counter, setCounter] = useState();
-  const [cache, setCache] = useState();
+function Actions({ id, options, counter, cache}) {
 
   const handleSummit = (values) => {
     const formData = {
@@ -15,9 +11,17 @@ function Actions({ id, options }) {
     };
 
     postAppCart(formData).then((response) => {
-      localStorage.setCache(response.count);
-      setCounter(cache + 1);
+      localStorage.setItem("count", cache(response.count));
+      counter(response.count);
+      
+      console.log(response.count)
     });
+    // postAppCart(formData).then((response) => {
+    //   localStorage.setItem("count", setCache(response.count));
+    //   setCounter(cache.count);
+    //   // setCounter(parseInt(cache.count) + 1);
+      
+    // });
   };
 
   if (options) {

@@ -6,7 +6,7 @@ import { getMobileDetails } from "../../services/mobileServices";
 import { Row, Col, Image } from "antd";
 import "./Details.css";
 
-function Details() {
+function Details({counter, cache}) {
   const { id } = useParams();
   const [mobileDetails, setMobileDetails] = useState([]);
 
@@ -30,7 +30,7 @@ function Details() {
               {mobileDetails.brand} - {mobileDetails.model}
             </div>
             <h2 className="detailsPrice">{mobileDetails.price}€</h2>
-            <Actions id={mobileDetails.id} options={mobileDetails.options} />
+            <Actions id={mobileDetails.id} options={mobileDetails.options} counter={counter} cache={cache} />
 
             <h2 className="descriptionTitle">Details</h2>
             <Description details={mobileDetails} />

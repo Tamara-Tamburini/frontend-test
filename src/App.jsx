@@ -1,15 +1,27 @@
 import MainHome from "./pages/mainHome/MainHome";
 import Details from "./pages/details/Details";
 import Breadcrumbs from "./components/Breadcrumbs";
-import { useEffect } from "react";
+import Cart from "./components/Cart";
+import { useEffect, useState } from "react";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
 import { Col, Row, Layout } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+
 import "./App.css";
 
 const { Header, Content } = Layout;
 
 function App() {
+  // TODO:
+  const [cache, setCache] = useState({});
+  const [counter, setCounter] = useState(0);
+
+  // useEffect(() => {
+  // 	if (window.localStorage !== undefined) {
+  // 		cache = window.localStorage.getItem('count');
+  // 		cache !== null ? setCounter(JSON.parse(cache)) : null;
+  // 	}
+  // }, []);
+
   return (
     <Layout>
       <Header className="header" style={{ padding: "0 20px" }}>
@@ -18,9 +30,7 @@ function App() {
             <Link to="/">Mobile Shop App</Link>
           </Col>
           <Breadcrumbs />
-          <Col flex="auto" className="headerCart">
-            <ShoppingCartOutlined />
-          </Col>
+          <Cart counter={counter}></Cart>
         </Row>
       </Header>
 
@@ -30,7 +40,10 @@ function App() {
             <Route index element={<DefaultRoute />} />
             <Route path="/home">
               <Route index element={<MainHome />} />
-              <Route path=":id" element={<Details />} />
+              <Route
+                path=":id"
+                element={<Details counter={setCounter} cache={setCache} />}
+              />
             </Route>
           </Routes>
         </Content>
