@@ -4,6 +4,10 @@ const onChange = (e) => {
   console.log(`radio checked:${e.target.value}`);
 };
 function Actions({ options }) {
+  // TODO: Submit logic
+  const AddToCard = () => {
+  }
+
   if (options) {
     return (
       <>
@@ -41,7 +45,7 @@ function Actions({ options }) {
             </Form.Item>
           ) : null}
           <Form.Item>
-            <Button type="primary" htmlType="submit">Add to Card</Button>
+            <Button type="primary" htmlType="submit" onClick={AddToCard}>Add to Card</Button>
           </Form.Item>
         </Form>
       </>

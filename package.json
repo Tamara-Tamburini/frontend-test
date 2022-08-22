@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "@craco/craco": "^6.4.3",
-    "craco-less": "^1.20.0",
     "antd": "^4.22.5",
+    "craco-less": "^1.20.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "4.0.3",
     "react-router-dom": "^6.1.1",
-    "web-vitals": "^2.1.4",
-    "typed-css-modules": "^0.7.0"
+    "react-scripts": "4.0.3",
+    "typed-css-modules": "^0.7.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "craco start",
@@ -40,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-error-overlay": "^6.0.9"
   }
 }

@@ -10,7 +10,7 @@ function Breadcrumbs() {
       <Col xs={10} sm={8} md={8} lg={8} xl={8}>
         <Breadcrumb>
           {pathnames.map((item, index) => {
-            var itemName = item == "home" ? "Products List" : item;
+            var itemName = item === "home" ? "Products List" : item;
             const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
             const lastPage = index === pathnames.length - 0;
             return lastPage ? (
