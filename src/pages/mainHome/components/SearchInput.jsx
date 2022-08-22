@@ -3,6 +3,7 @@ import { Col, Row, Input } from "antd";
 const { Search } = Input;
 
 function SearchInput({ items, filteredItem }) {
+  
   const searchItems = (searchValue) => {
     const filteredData = items.filter((item) => {
       return Object.values(item)
@@ -12,7 +13,6 @@ function SearchInput({ items, filteredItem }) {
     });
 
     filteredItem(filteredData);
-
   };
 
   return (

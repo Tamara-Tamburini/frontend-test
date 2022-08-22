@@ -1,10 +1,15 @@
 /* DETAILS VIEW */
 
 .detailsWrapper {
-    padding: 20px 0;
+  display: flex;
+  justify-content: center;
 }
-.deviceImg {
+.detailsRow {
+  padding: 20px 0;
+  width: 100%;
+  max-width: 800px;
 }
-
-.deviceDetails {
+.detailsTitle {
+  font-size: 30px;
+  font-weight: 500;
 }

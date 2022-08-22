@@ -4,7 +4,8 @@ import { Row, Col, Image } from "antd";
 function Item({ items }) {
   return (
     <>
-      {items.map((item, index) => {
+      {
+      items.map((item, index) => {
         return (
           <Col key={index} xs={24} sm={12} md={12} lg={6} xl={6}>
             <Link to={item.id}>

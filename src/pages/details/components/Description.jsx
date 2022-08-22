@@ -1,21 +1,29 @@
-import { Col, List, Row } from "antd";
+import { List } from "antd";
 
-function Description() {
-
+function Description({ details }) {
+  var data = [
+    { title: "CPU", feature: details.cpu },
+    { title: "RAM", feature: details.ram },
+    { title: "Operating System", feature: details.os },
+    { title: "Display Size", feature: details.displaySize },
+    { title: "Battery", feature: details.battery },
+    { title: "Dimentions", feature: details.dimentions },
+    { title: "Weight", feature: details.weight },
+  ];
 
   return (
-    <Row span={12}>
-      <Col>
-        <Row className="descriptionTitle">Mobile Description</Row>
-        <Row>
-            <List>
-                <List.Item>Test 01</List.Item>
-                <List.Item>Test 02</List.Item>
-            </List>
-        </Row>
-      </Col>
-    </Row>
+    <List
+      dataSource={data}
+      renderItem={(item) => (
+        <List.Item>
+          <List.Item.Meta
+            title={<div>{item.title}</div>}
+            description={item.feature}
+          />
+        </List.Item>
+      )}
+    />
   );
 }
 
-export default Description
+export default Description;
