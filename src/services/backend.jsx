@@ -1,6 +1,5 @@
 async function sendRequest(method, endpoint, params, payload) {
-  const url =
-    "https://front-test-api.herokuapp.com" + endpoint;
+  const url = "https://front-test-api.herokuapp.com" + endpoint;
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
   const fetchResult = await fetch(url, {
@@ -33,6 +32,6 @@ export async function get(endpoint, params) {
   return sendRequest("GET", endpoint, params);
 }
 
-export async function getMobileDetails(endpoint, params) {
-  return sendRequest("GET", endpoint, params);
+export async function post(endpoint, payload) {
+  return sendRequest("POST", endpoint, undefined, payload);
 }

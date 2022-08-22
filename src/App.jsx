@@ -3,7 +3,7 @@ import Details from "./pages/details/Details";
 import Breadcrumbs from "./components/Breadcrumbs";
 import { useEffect } from "react";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
-import { Col, Row,Layout } from "antd";
+import { Col, Row, Layout } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import "./App.css";
 

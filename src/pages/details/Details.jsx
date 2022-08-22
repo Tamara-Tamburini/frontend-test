@@ -30,7 +30,7 @@ function Details() {
               {mobileDetails.brand} - {mobileDetails.model}
             </div>
             <h2 className="detailsPrice">{mobileDetails.price}€</h2>
-            <Actions options={mobileDetails.options} />
+            <Actions id={mobileDetails.id} options={mobileDetails.options} />
 
             <h2 className="descriptionTitle">Details</h2>
             <Description details={mobileDetails} />

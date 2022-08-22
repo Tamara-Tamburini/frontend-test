@@ -1,23 +1,40 @@
 import { Form, Button, Radio } from "antd";
+import { useEffect, useState } from "react";
+import { postAppCart } from "../../../services/mobileServices";
 
-const onChange = (e) => {
-  console.log(`radio checked:${e.target.value}`);
-};
-function Actions({ options }) {
-  // TODO: Submit logic
-  const AddToCard = () => {
-  }
+function Actions({ id, options }) {
+  // const [form] = Form.useForm();
+  const [counter, setCounter] = useState();
+  const [cache, setCache] = useState();
+
+  const handleSummit = (values) => {
+    const formData = {
+      id: id,
+      colorCode: values.color ? values.color : "",
+      storageCode: values.storage ? values.storage : "",
+    };
+
+    postAppCart(formData).then((response) => {
+      localStorage.setCache(response.count);
+      setCounter(cache + 1);
+    });
+  };
 
   if (options) {
     return (
       <>
-        <Form>
+        <Form
+          name="addToCartForm"
+          initialValues={{ remember: true }}
+          onFinish={handleSummit}
+        >
           {options.colors ? (
-            <Form.Item label="Colors">
-              <Radio.Group
-                onChange={onChange}
-                defaultValue={options.colors[0].code}
-              >
+            <Form.Item
+              name="color"
+              label="Colors"
+              initialValue={options.colors[0].code}
+            >
+              <Radio.Group defaultValue={options.colors[0].code}>
                 {options.colors.map((item, index) => {
                   return (
                     <Radio.Button key={index} value={item.code}>
@@ -29,11 +46,12 @@ function Actions({ options }) {
             </Form.Item>
           ) : null}
           {options.storages ? (
-            <Form.Item label="Storages">
-              <Radio.Group
-                onChange={onChange}
-                defaultValue={options.storages[0].code}
-              >
+            <Form.Item
+              name="storage"
+              label="Storages"
+              initialValue={options.storages[0].code}
+            >
+              <Radio.Group defaultValue={options.storages[0].code}>
                 {options.storages.map((item, index) => {
                   return (
                     <Radio.Button key={index} value={item.code}>
@@ -45,7 +63,9 @@ function Actions({ options }) {
             </Form.Item>
           ) : null}
           <Form.Item>
-            <Button type="primary" htmlType="submit" onClick={AddToCard}>Add to Card</Button>
+            <Button type="primary" htmlType="submit">
+              Add to Cart
+            </Button>
           </Form.Item>
         </Form>
       </>
