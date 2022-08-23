@@ -11,6 +11,7 @@ import "./App.css";
 const { Header, Content } = Layout;
 
 function App() {
+  const [breadcrumbName, setbreadcrumbName] = useState("");
   // Cart counter hook
   const [counter, setCounter] = useState(0);
 
@@ -46,7 +47,7 @@ function App() {
           <Col xs={8} sm={6} md={6} lg={6} xl={6} className="headerTitle">
             <Link to="/">Mobile Shop App</Link>
           </Col>
-          <Breadcrumbs />
+          <Breadcrumbs breadcrumbName={breadcrumbName}/>
           <Cart counter={counter}></Cart>
         </Row>
       </Header>
@@ -57,7 +58,7 @@ function App() {
             <Route index element={<DefaultRoute />} />
             <Route path="/home">
               <Route index element={<MainHome />} />
-              <Route path=":id" element={<Details counter={setCounter} />} />
+              <Route path=":id" element={<Details counter={setCounter} breadcrumbName={setbreadcrumbName} />} />
             </Route>
           </Routes>
         </Content>

@@ -6,13 +6,16 @@ import { getMobileDetails } from "../../services/mobileServices";
 import { Row, Col, Image } from "antd";
 import "./Details.css";
 
-function Details({ counter }) {
+function Details({ counter, breadcrumbName }) {
   const { id } = useParams();
   const [mobileDetails, setMobileDetails] = useState([]);
 
   // Gets the specific device API data and send it to setMobileDeatails hook
   useEffect(() => {
-    getMobileDetails(id).then((itemData) => setMobileDetails(itemData));
+    getMobileDetails(id).then((itemData) => {
+      setMobileDetails(itemData)
+      breadcrumbName(itemData.model)
+    });
   }, []);
 
   return (
