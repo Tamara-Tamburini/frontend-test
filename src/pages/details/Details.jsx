@@ -24,10 +24,9 @@ function Details({ counter, breadcrumbName }) {
         <Row className="detailsRow" justify="center">
           {/* Image Column */}
           <Col
-            span={8}
             className="deviceImg"
             xs={24}
-            sm={6}
+            sm={24}
             md={8}
             lg={8}
             xl={8}
@@ -41,10 +40,9 @@ function Details({ counter, breadcrumbName }) {
 
           {/* Details Column */}
           <Col
-            span={12}
             className="deviceDetails"
             xs={24}
-            sm={8}
+            sm={24}
             md={12}
             lg={12}
             xl={12}

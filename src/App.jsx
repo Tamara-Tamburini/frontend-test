@@ -44,7 +44,7 @@ function App() {
     <Layout>
       <Header className="header" style={{ padding: "0 20px" }}>
         <Row align="middle">
-          <Col xs={8} sm={6} md={6} lg={6} xl={6} className="headerTitle">
+          <Col flex="auto" className="headerTitle">
             <Link to="/">Mobile Shop App</Link>
           </Col>
           <Breadcrumbs breadcrumbName={breadcrumbName}/>

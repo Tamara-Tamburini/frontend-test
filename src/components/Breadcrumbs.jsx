@@ -7,7 +7,7 @@ function Breadcrumbs({breadcrumbName}) {
     const { pathname } = location;
     const pathnames = pathname.split("/").filter((item) => item);
     return (
-      <Col xs={10} sm={8} md={8} lg={8} xl={8}>
+      <Col xs={12} sm={10} md={10} lg={10} xl={10}>
         <Breadcrumb>
           {pathnames.map((item, index) => {
             var itemName = item === "home" ? "Products List" : breadcrumbName;
