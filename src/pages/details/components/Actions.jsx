@@ -21,7 +21,7 @@ function Actions({ id, options, counter }) {
         parseInt(oldResponse) + parseInt(newResponse)
       );
 
-      counter(parseInt(oldResponse) + parseInt(newResponse))
+      counter(parseInt(oldResponse) + parseInt(newResponse));
     });
   };
 
