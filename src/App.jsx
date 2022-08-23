@@ -11,17 +11,17 @@ import "./App.css";
 const { Header, Content } = Layout;
 
 function App() {
-  // TODO:
-  const [cache, setCache] = useState({});
   const [counter, setCounter] = useState(0);
-
-  // useEffect(() => {
-  // 	if (window.localStorage !== undefined) {
-  // 		cache = window.localStorage.getItem('count');
-  // 		cache !== null ? setCounter(JSON.parse(cache)) : null;
-  // 	}
-  // }, []);
-
+ 
+	useEffect(() => {
+		if (window.localStorage !== undefined) {
+			const count = window.localStorage.getItem('count');
+      if (count !== null) {
+        setCounter(count)
+      }
+		}
+	}, []);
+  
   return (
     <Layout>
       <Header className="header" style={{ padding: "0 20px" }}>
@@ -40,10 +40,7 @@ function App() {
             <Route index element={<DefaultRoute />} />
             <Route path="/home">
               <Route index element={<MainHome />} />
-              <Route
-                path=":id"
-                element={<Details counter={setCounter} cache={setCache} />}
-              />
+              <Route path=":id" element={<Details counter={setCounter}/>} />
             </Route>
           </Routes>
         </Content>

@@ -2,8 +2,7 @@ import { Col } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 function Cart({ counter }) {
-  if (parseInt(counter) === 0) {
-  }
+  
   return (
     <>
       <Col flex="auto" className="headerCart">

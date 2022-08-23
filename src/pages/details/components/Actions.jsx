@@ -1,8 +1,7 @@
 import { Form, Button, Radio } from "antd";
 import { postAppCart } from "../../../services/mobileServices";
 
-function Actions({ id, options, counter, cache}) {
-
+function Actions({ id, options, counter }) {
   const handleSummit = (values) => {
     const formData = {
       id: id,
@@ -11,17 +10,19 @@ function Actions({ id, options, counter, cache}) {
     };
 
     postAppCart(formData).then((response) => {
-      localStorage.setItem("count", cache(response.count));
-      counter(response.count);
-      
-      console.log(response.count)
+      const newResponse = response.count;
+      const oldResponse =
+        window.localStorage.getItem("count") === null
+          ? 0
+          : window.localStorage.getItem("count");
+
+      window.localStorage.setItem(
+        "count",
+        parseInt(oldResponse) + parseInt(newResponse)
+      );
+
+      counter(parseInt(oldResponse) + parseInt(newResponse))
     });
-    // postAppCart(formData).then((response) => {
-    //   localStorage.setItem("count", setCache(response.count));
-    //   setCounter(cache.count);
-    //   // setCounter(parseInt(cache.count) + 1);
-      
-    // });
   };
 
   if (options) {
