@@ -8,6 +8,7 @@ function MainHome() {
   const [items, setItems] = useState([])
   const [filteredItems, setFilteredItems] = useState([])
 
+  // Gets API devices data and send it to the ItemList component
   useEffect(() => {
     getMobile().then((itemsData) => setItems(itemsData))
   }, []);

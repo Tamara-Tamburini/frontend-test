@@ -3,12 +3,14 @@ import { postAppCart } from "../../../services/mobileServices";
 
 function Actions({ id, options, counter }) {
   const handleSummit = (values) => {
+    // Create the data element to send to the API
     const formData = {
       id: id,
       colorCode: values.color ? values.color : "",
       storageCode: values.storage ? values.storage : "",
     };
 
+    // Send data and set it to locale storage
     postAppCart(formData).then((response) => {
       const newResponse = response.count;
       const oldResponse =
@@ -21,6 +23,7 @@ function Actions({ id, options, counter }) {
         parseInt(oldResponse) + parseInt(newResponse)
       );
 
+      // Uses cart couter hook to set count to the cart component
       counter(parseInt(oldResponse) + parseInt(newResponse));
     });
   };

@@ -11,6 +11,7 @@ import "./App.css";
 const { Header, Content } = Layout;
 
 function App() {
+  // Cart counter hook
   const [counter, setCounter] = useState(0);
 
   // If there was data stored in localStore, sends it to the cart
