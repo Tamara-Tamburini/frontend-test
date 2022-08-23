@@ -11,16 +11,33 @@ import "./App.css";
 const { Header, Content } = Layout;
 
 function App() {
-  // TODO:
-  const [cache, setCache] = useState({});
+  // Cart counter hook
   const [counter, setCounter] = useState(0);
 
-  // useEffect(() => {
-  // 	if (window.localStorage !== undefined) {
-  // 		cache = window.localStorage.getItem('count');
-  // 		cache !== null ? setCounter(JSON.parse(cache)) : null;
-  // 	}
-  // }, []);
+  // If there was data stored in localStore, sends it to the cart
+  useEffect(() => {
+    if (window.localStorage !== undefined) {
+      const count = window.localStorage.getItem("count");
+      if (count !== null) {
+        setCounter(count);
+      }
+    }
+  }, []);
+
+  // Local storage expiration
+  var hours = 1; // to clear the localStorage after 1 hour
+  var now = new Date().getTime();
+  var setupTime = localStorage.getItem("setupTime");
+  if (setupTime == null) {
+    localStorage.setItem("setupTime", now);
+  } else {
+      if (now - setupTime > hours * 60 * 60 * 1000) {
+      localStorage.clear();
+      localStorage.setItem("setupTime", now);
+      setCounter(0);
+      console.log("Local storage has expired");
+    }
+  }
 
   return (
     <Layout>
@@ -40,10 +57,7 @@ function App() {
             <Route index element={<DefaultRoute />} />
             <Route path="/home">
               <Route index element={<MainHome />} />
-              <Route
-                path=":id"
-                element={<Details counter={setCounter} cache={setCache} />}
-              />
+              <Route path=":id" element={<Details counter={setCounter} />} />
             </Route>
           </Routes>
         </Content>
