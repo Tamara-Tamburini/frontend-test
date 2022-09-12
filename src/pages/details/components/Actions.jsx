@@ -1,9 +1,9 @@
-import { Form, Button, Radio } from "antd";
+import { Form, Button } from "antd";
 import { postAppCart } from "../../../services/mobileServices";
+import FormItem from "./FormItem";
 
 function Actions({ id, options, counter }) {
   const handleSummit = (values) => {
-    // Create the data element to send to the API
     const formData = {
       id: id,
       colorCode: values.color ? values.color : "",
@@ -37,38 +37,10 @@ function Actions({ id, options, counter }) {
           onFinish={handleSummit}
         >
           {options.colors ? (
-            <Form.Item
-              name="color"
-              label="Colors"
-              initialValue={options.colors[0].code}
-            >
-              <Radio.Group defaultValue={options.colors[0].code}>
-                {options.colors.map((item, index) => {
-                  return (
-                    <Radio.Button key={index} value={item.code}>
-                      {item.name}
-                    </Radio.Button>
-                  );
-                })}
-              </Radio.Group>
-            </Form.Item>
+            <FormItem optionsGroup={options.colors} nameOptions={"Color"}/>
           ) : null}
           {options.storages ? (
-            <Form.Item
-              name="storage"
-              label="Storages"
-              initialValue={options.storages[0].code}
-            >
-              <Radio.Group defaultValue={options.storages[0].code}>
-                {options.storages.map((item, index) => {
-                  return (
-                    <Radio.Button key={index} value={item.code}>
-                      {item.name}
-                    </Radio.Button>
-                  );
-                })}
-              </Radio.Group>
-            </Form.Item>
+            <FormItem optionsGroup={options.storages} nameOptions={"Storage"}/>
           ) : null}
           <Form.Item>
             <Button type="primary" htmlType="submit">

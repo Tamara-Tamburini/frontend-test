@@ -6,12 +6,6 @@
   cursor: pointer;
 }
 
-.headerTitle a,
-.headerTitle a:hover,
-.headerTitle:hover {
-  color: #f5f5f7;
-}
-
 .headerCart {
   font-size: 20px;
   display: flex;
